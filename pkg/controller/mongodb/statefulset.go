@@ -167,7 +167,7 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
-            #added these values for linting, please look over them and ensure they're correct
+            #added these values for linting, please ensure they're correct
             runAsNonRoot: true
             runAsUser: 65534
             privileged: false
