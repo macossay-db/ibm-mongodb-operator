@@ -59,3 +59,8 @@ spec:
             capabilities:
               drop:
               - ALL
+          resources:
+            limits:
+              memory: 5Gi
+            requests:
+              memory: 5Gi

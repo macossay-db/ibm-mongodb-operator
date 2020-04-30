@@ -53,6 +53,17 @@ spec:
       hostNetwork: false
       hostPID: false
       hostIPC: false
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                  - amd64
+                  - ppc64le
+                  - s390x
       initContainers:
         - name: install
           image: "{{ .ImageRepo }}/{{ .InitImage }}"
@@ -156,6 +167,13 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
+            #added these values for linting, please look over them and ensure they're correct
+            runAsNonRoot: true
+            runAsUser: 65534
+            privileged: false
+            capabilities:
+              drop:
+              - ALL
           ports:
             - name: peer
               containerPort: 27017
@@ -226,6 +244,13 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
+            #added these values for linting, please look over them and ensure they're correct
+            runAsNonRoot: true
+            runAsUser: 65534
+            privileged: false
+            capabilities:
+              drop:
+              - ALL
           command:
             - sh
             - -ec
