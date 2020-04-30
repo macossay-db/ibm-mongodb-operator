@@ -73,6 +73,16 @@ spec:
             - --work-dir=/work-dir
             - --config-dir=/data/configdb
           imagePullPolicy: "IfNotPresent"
+          #added these values for linting, please ensure they're correct
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 65534
+            privileged: false
+            capabilities:
+              drop:
+              - ALL
           resources:
             limits:
               memory: 8Gi
@@ -113,6 +123,13 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
+            #added these values for linting, please ensure they're correct
+            runAsNonRoot: true
+            runAsUser: 65534
+            privileged: false
+            capabilities:
+              drop:
+              - ALL
           env:
             - name: POD_NAMESPACE
               valueFrom:
