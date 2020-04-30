@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ibm-mongodb-operator
+  labels: 
+    app.kubernetes.io/instance: mongodbs.operator.ibm.com
+    app.kubernetes.io/managed-by: mongodbs.operator.ibm.com
+    app.kubernetes.io/name: mongodbs.operator.ibm.com
 spec:
   replicas: 1
   selector:
@@ -11,6 +15,9 @@ spec:
     metadata:
       labels:
         name: ibm-mongodb-operator
+        app.kubernetes.io/instance: mongodbs.operator.ibm.com
+        app.kubernetes.io/managed-by: mongodbs.operator.ibm.com
+        app.kubernetes.io/name: mongodbs.operator.ibm.com
       annotations:
         productName: IBM Cloud Platform Common Services
         productID: "068a62892a1e4db39641342e592daa25"

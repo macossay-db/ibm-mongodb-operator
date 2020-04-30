@@ -20,6 +20,10 @@ apiVersion: certmanager.k8s.io/v1alpha1
 kind: Issuer
 metadata:
  name: god-issuer
+ labels: 
+    app.kubernetes.io/instance: mongodbs.operator.ibm.com
+    app.kubernetes.io/managed-by: mongodbs.operator.ibm.com
+    app.kubernetes.io/name: mongodbs.operator.ibm.com
  namespace: ibm-common-services
 spec:
  selfSigned: {}
@@ -30,6 +34,10 @@ apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
  name: mongodb-root-ca-cert
+ labels: 
+    app.kubernetes.io/instance: mongodbs.operator.ibm.com
+    app.kubernetes.io/managed-by: mongodbs.operator.ibm.com
+    app.kubernetes.io/name: mongodbs.operator.ibm.com
  namespace: ibm-common-services
 spec:
  secretName: mongodb-root-ca-cert
@@ -48,6 +56,10 @@ apiVersion: certmanager.k8s.io/v1alpha1
 kind: Issuer
 metadata:
  name: mongodb-root-ca-issuer
+ labels: 
+    app.kubernetes.io/instance: mongodbs.operator.ibm.com
+    app.kubernetes.io/managed-by: mongodbs.operator.ibm.com
+    app.kubernetes.io/name: mongodbs.operator.ibm.com
  namespace: ibm-common-services
 spec:
  ca:
@@ -59,6 +71,10 @@ apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
  name: icp-mongodb-client-cert
+ labels: 
+    app.kubernetes.io/instance: mongodbs.operator.ibm.com
+    app.kubernetes.io/managed-by: mongodbs.operator.ibm.com
+    app.kubernetes.io/name: mongodbs.operator.ibm.com
  namespace: ibm-common-services
 spec:
  secretName: icp-mongodb-client-cert
