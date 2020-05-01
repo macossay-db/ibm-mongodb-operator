@@ -57,15 +57,6 @@ spec:
                   fieldPath: metadata.name
             - name: OPERATOR_NAME
               value: "ibm-mongodb-operator"
-          securityContext: #please correct these values if they are incorrect, otherwise I will delete this comment -ben
-            allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
-            runAsNonRoot: true
-            runAsUser: 65534
-            privileged: false
-            capabilities:
-              drop:
-              - ALL
           resources:
             limits:
               memory: 5Gi
