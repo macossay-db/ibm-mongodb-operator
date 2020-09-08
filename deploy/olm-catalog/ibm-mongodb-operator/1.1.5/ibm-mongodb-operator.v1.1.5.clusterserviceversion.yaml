@@ -199,7 +199,7 @@ spec:
                   value: quay.io/opencloudio/ibm-mongodb@sha256:c9ea016c01875250276ad33829431b822ca3db63249a3ec32b68184384e16b10
                 - name: EXPORTER_MONGODB_IMAGE
                   value: quay.io/opencloudio/ibm-mongodb-exporter@sha256:f8cee5b683d77623022cb592ebca675654d8fdd34914f386ff60ffa7e64b9088
-                image: quay.io/opencloudio/ibm-mongodb-operator:latest
+                image: quay.io/morvencao/ibm-mongodb-operator:latest
                 imagePullPolicy: Always
                 name: ibm-mongodb-operator
                 livenessProbe:
@@ -306,7 +306,8 @@ spec:
           - challenges
           - issuers
           verbs:
-          - '*'
+          - create
+          - use
         serviceAccountName: ibm-mongodb-operator
     strategy: deployment
   installModes:
